@@ -1,0 +1,733 @@
+/* صدقة جارية عن روح السيد فتحي قاسم الدقة */
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --green: #243f34;
+  --green-dark: #172e26;
+  --green-light: #496455;
+  --gold: #b69a65;
+  --gold-light: #dfcca1;
+  --ivory: #f8f6ef;
+  --cream: #efede3;
+  --white: #fffefa;
+  --text: #34443a;
+  --muted: #899087;
+  --border: rgba(69, 85, 70, 0.13);
+  --shadow: 0 12px 35px rgba(39, 53, 42, 0.07);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: var(--text);
+  background:
+    radial-gradient(
+      circle at 12% 15%,
+      rgba(182, 154, 101, 0.09),
+      transparent 320px
+    ),
+    radial-gradient(
+      circle at 90% 65%,
+      rgba(73, 100, 85, 0.07),
+      transparent 350px
+    ),
+    var(--ivory);
+  font-family: "Cairo", sans-serif;
+}
+
+/* الخلفية والزخارف */
+
+.ambient {
+  position: fixed;
+  z-index: 0;
+  width: 300px;
+  height: 300px;
+  border: 1px solid rgba(182, 154, 101, 0.12);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.ambient-one {
+  top: 10%;
+  right: -220px;
+  box-shadow:
+    0 0 0 25px rgba(182, 154, 101, 0.025),
+    0 0 0 50px rgba(182, 154, 101, 0.02);
+}
+
+.ambient-two {
+  bottom: 8%;
+  left: -220px;
+  box-shadow:
+    0 0 0 25px rgba(182, 154, 101, 0.025),
+    0 0 0 50px rgba(182, 154, 101, 0.02);
+}
+
+/* الصفحة */
+
+.page-shell {
+  position: relative;
+  z-index: 1;
+  width: min(1120px, calc(100% - 42px));
+  margin: auto;
+  padding: 35px 0 25px;
+}
+
+/* المقدمة الرئيسية */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 40px 20px 38px;
+  border: 1px solid rgba(182, 154, 101, 0.35);
+  border-radius: 28px;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(105, 133, 108, 0.20),
+      transparent 55%
+    ),
+    linear-gradient(
+      145deg,
+      #29483a,
+      #1b352b 60%,
+      #172e26
+    );
+  box-shadow: 0 18px 45px rgba(23, 46, 38, 0.15);
+  text-align: center;
+  color: var(--white);
+}
+
+.hero::before,
+.hero::after {
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  content: "";
+  border: 1px solid rgba(223, 204, 161, 0.09);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero::before {
+  top: -145px;
+  right: -100px;
+  box-shadow:
+    0 0 0 18px rgba(223, 204, 161, 0.025),
+    0 0 0 38px rgba(223, 204, 161, 0.02);
+}
+
+.hero::after {
+  bottom: -155px;
+  left: -100px;
+  box-shadow:
+    0 0 0 18px rgba(223, 204, 161, 0.025),
+    0 0 0 38px rgba(223, 204, 161, 0.02);
+}
+
+.ornament {
+  position: relative;
+  z-index: 1;
+  color: var(--gold-light);
+  font-size: 27px;
+  opacity: 0.9;
+}
+
+/* صورة الوالد */
+
+.portrait-wrap {
+  position: relative;
+  z-index: 1;
+  width: 205px;
+  height: 205px;
+  margin: 23px auto 25px;
+  padding: 6px;
+  border: 1px solid var(--gold-light);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 0 0 6px rgba(223, 204, 161, 0.10),
+    0 0 0 12px rgba(223, 204, 161, 0.045),
+    0 15px 35px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.portrait {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 35%;
+  background: #344b3e;
+}
+
+/* نصوص المقدمة */
+
+.eyebrow {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 8px;
+  color: var(--gold-light);
+  font-family: "Amiri", serif;
+  font-size: 20px;
+}
+
+.hero h1 {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: #ead9ae;
+  font-family: "Amiri", serif;
+  font-size: clamp(48px, 6vw, 68px);
+  font-weight: 700;
+  line-height: 1.25;
+  text-shadow: 0 3px 15px rgba(0, 0, 0, 0.13);
+}
+
+.hero h2 {
+  position: relative;
+  z-index: 1;
+  margin: 7px 0 15px;
+  color: #f1eee4;
+  font-size: clamp(17px, 2.5vw, 23px);
+  font-weight: 500;
+}
+
+.gold-line {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  width: min(260px, 75%);
+  margin: 17px auto;
+  color: var(--gold-light);
+}
+
+.gold-line::before,
+.gold-line::after {
+  flex: 1;
+  height: 1px;
+  content: "";
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(223, 204, 161, 0.7)
+  );
+}
+
+.gold-line::after {
+  transform: rotate(180deg);
+}
+
+.hero-dua {
+  position: relative;
+  z-index: 1;
+  max-width: 650px;
+  margin: 10px auto 0;
+  color: #e1e5dc;
+  font-family: "Amiri", serif;
+  font-size: 22px;
+  line-height: 1.8;
+}
+
+/* إجمالي التسبيحات */
+
+.summary-panel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: min(570px, 100%);
+  margin: 35px auto 58px;
+  padding: 19px 28px;
+  border: 1px solid rgba(182, 154, 101, 0.32);
+  border-radius: 17px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+  text-align: right;
+}
+
+.summary-icon {
+  color: var(--gold);
+  font-size: 36px;
+  line-height: 1;
+}
+
+.summary-panel div:nth-child(2) {
+  display: grid;
+  gap: 2px;
+}
+
+.summary-label {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.summary-panel strong {
+  color: var(--green);
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.summary-caption {
+  margin-right: auto;
+  color: #a28c60;
+  font-size: 11px;
+}
+
+/* عناوين الأقسام */
+
+.section-heading {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.section-kicker {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+}
+
+.section-heading h3 {
+  margin: 6px 0 3px;
+  color: var(--green);
+  font-family: "Amiri", serif;
+  font-size: clamp(28px, 3.5vw, 36px);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.section-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* أدعية الوالد */
+
+.father-duas-section {
+  margin-top: 72px;
+}
+
+.father-duas-section .section-heading {
+  margin-bottom: 28px;
+}
+
+.father-duas-section .section-heading h3 {
+  color: var(--green);
+}
+
+/* بطاقات الأذكار */
+
+.tasbih-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.tasbih-card {
+  position: relative;
+  min-width: 0;
+  padding: 21px 20px 17px;
+  overflow: hidden;
+  border: 1px solid rgba(69, 85, 70, 0.13);
+  border-radius: 17px;
+  background: var(--white);
+  box-shadow: 0 7px 22px rgba(39, 53, 42, 0.045);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.tasbih-card::before {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  left: 20px;
+  height: 2px;
+  content: "";
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold),
+    transparent
+  );
+  opacity: 0.7;
+}
+
+.tasbih-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(182, 154, 101, 0.4);
+  box-shadow: 0 14px 30px rgba(39, 53, 42, 0.09);
+}
+
+.tasbih-card.completed {
+  border-color: rgba(73, 100, 85, 0.35);
+  background: #fbfcf8;
+}
+
+/* رأس البطاقة */
+
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  min-height: 62px;
+  margin-bottom: 14px;
+}
+
+.card-number {
+  display: grid;
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border: 1px solid rgba(182, 154, 101, 0.55);
+  border-radius: 50%;
+  color: #9c804d;
+  background: #fbf8f0;
+  font-size: 12px;
+}
+
+.dhikr-name {
+  padding-top: 1px;
+  color: var(--green);
+  font-family: "Amiri", serif;
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+/* الأرقام */
+
+.counter-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.remaining-label {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.remaining-number {
+  color: var(--green);
+  font-size: 39px;
+  font-weight: 800;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.remaining-number small {
+  color: #9ba399;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* شريط التقدم */
+
+.progress-track {
+  height: 5px;
+  margin: 16px 0;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #eeede6;
+}
+
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    #9d8654,
+    #d6c18e
+  );
+  transition: width 0.25s ease;
+}
+
+/* أزرار العد */
+
+.card-actions {
+  display: flex;
+  gap: 9px;
+}
+
+.count-button {
+  flex: 1;
+  border: 0;
+  border-radius: 10px;
+  padding: 11px 12px;
+  color: var(--white);
+  background: linear-gradient(
+    135deg,
+    #294b3b,
+    #1b382c
+  );
+  font: 700 14px "Cairo", sans-serif;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    filter 0.2s ease;
+}
+
+.count-button:hover {
+  filter: brightness(1.12);
+}
+
+.count-button:active {
+  transform: scale(0.97);
+}
+
+.count-button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.reset-button {
+  border: 1px solid rgba(69, 85, 70, 0.16);
+  border-radius: 10px;
+  padding: 10px 13px;
+  color: #78847a;
+  background: transparent;
+  font: 600 12px "Cairo", sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reset-button:hover {
+  border-color: rgba(182, 154, 101, 0.5);
+  color: var(--green);
+  background: #f7f5ee;
+}
+
+.completed-note {
+  min-height: 20px;
+  margin-top: 9px;
+  color: #788e73;
+  font-size: 11px;
+}
+
+/* إعادة تعيين الكل */
+
+.reset-all-panel {
+  display: flex;
+  justify-content: center;
+  margin: 42px 0 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.reset-all-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid rgba(69, 85, 70, 0.19);
+  border-radius: 30px;
+  padding: 8px 20px;
+  color: #7d867d;
+  background: transparent;
+  font: 600 12px "Cairo", sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reset-all-button span {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.reset-all-button:hover {
+  border-color: var(--gold);
+  color: var(--green);
+  background: var(--white);
+}
+
+/* التذييل */
+
+footer {
+  padding: 48px 10px 15px;
+  text-align: center;
+}
+
+.footer-ornament {
+  color: var(--gold);
+  font-size: 24px;
+}
+
+footer p {
+  margin: 9px 0 4px;
+  color: var(--green);
+  font-family: "Amiri", serif;
+  font-size: 23px;
+}
+
+footer span {
+  color: #92998e;
+  font-size: 11px;
+}
+
+/* الرسائل المنبثقة */
+
+.toast {
+  position: fixed;
+  z-index: 10;
+  bottom: 22px;
+  left: 50%;
+  padding: 11px 20px;
+  transform: translate(-50%, 20px);
+  border: 1px solid rgba(223, 204, 161, 0.3);
+  border-radius: 30px;
+  color: var(--white);
+  background: var(--green-dark);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  font-size: 12px;
+  font-weight: 700;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.25s;
+  white-space: nowrap;
+}
+
+.toast.show {
+  transform: translate(-50%, 0);
+  opacity: 1;
+}
+
+/* الأجهزة اللوحية */
+
+@media (max-width: 900px) {
+  .tasbih-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .page-shell {
+    width: min(100% - 32px, 760px);
+  }
+}
+
+/* الهواتف */
+
+@media (max-width: 600px) {
+  .page-shell {
+    width: calc(100% - 22px);
+    padding-top: 15px;
+  }
+
+  .hero {
+    padding: 30px 14px 28px;
+    border-radius: 22px;
+  }
+
+  .portrait-wrap {
+    width: 175px;
+    height: 175px;
+    margin: 21px auto 23px;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .hero h2 {
+    font-size: 18px;
+  }
+
+  .hero-dua {
+    font-size: 19px;
+  }
+
+  .summary-panel {
+    gap: 13px;
+    margin: 25px auto 43px;
+    padding: 15px 18px;
+  }
+
+  .summary-icon {
+    font-size: 29px;
+  }
+
+  .summary-panel strong {
+    font-size: 28px;
+  }
+
+  .summary-caption {
+    display: none;
+  }
+
+  .section-heading h3 {
+    font-size: 28px;
+  }
+
+  .tasbih-grid {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+
+  .tasbih-card {
+    padding: 18px 17px 15px;
+  }
+
+  .card-top {
+    min-height: auto;
+    margin-bottom: 13px;
+  }
+
+  .dhikr-name {
+    font-size: 23px;
+  }
+
+  .remaining-number {
+    font-size: 36px;
+  }
+
+  .father-duas-section {
+    margin-top: 53px;
+  }
+
+  .father-duas-section .section-heading h3 {
+    font-size: 27px;
+  }
+
+  .reset-all-panel {
+    margin-top: 32px;
+  }
+
+  footer {
+    padding-top: 38px;
+  }
+
+  footer p {
+    font-size: 21px;
+  }
+}
+
+/* تقليل الحركة */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
